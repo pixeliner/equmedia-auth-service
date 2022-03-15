@@ -39,12 +39,10 @@ export class SignInHandler implements ICommandHandler<SignInCommand> {
         user.jwt_payload = jwtPayload;
         user.save();
 
-        const accessTokenCookie = this.cookieService.getCookieWithJwtAccessToken(
-          user.id,
-        );
-        const refreshTokenCookie = this.cookieService.getCookieWithJwtRefreshToken(
-          user.id,
-        );
+        const accessTokenCookie =
+          this.cookieService.getCookieWithJwtAccessToken(user.id);
+        const refreshTokenCookie =
+          this.cookieService.getCookieWithJwtRefreshToken(user.id);
 
         await this.authorizationService.setRefreshToken(
           refreshTokenCookie.token,
