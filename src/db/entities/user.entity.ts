@@ -4,6 +4,9 @@ import {
   Unique,
   PrimaryGeneratedColumn,
   Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
 
@@ -35,4 +38,14 @@ export class UserEntity extends BaseEntity {
   @Column({ nullable: true })
   @Exclude()
   forgotPasswordToken?: string;
+
+  @CreateDateColumn()
+  createdAt!: Date;
+
+  @UpdateDateColumn()
+  updatedAt!: Date;
+
+  @DeleteDateColumn()
+  @Exclude()
+  deletedAt?: Date;
 }
