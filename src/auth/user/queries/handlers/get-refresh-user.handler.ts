@@ -9,7 +9,8 @@ import { UserEntity } from '../../../../db/entities';
 
 @QueryHandler(GetRefreshUserQuery)
 export class GetRefreshUserHandler
-  implements IQueryHandler<GetRefreshUserQuery> {
+  implements IQueryHandler<GetRefreshUserQuery>
+{
   constructor(
     @InjectRepository(UserReadRepository)
     private readonly userReadRepository: UserReadRepository,
@@ -22,10 +23,11 @@ export class GetRefreshUserHandler
       query.getRefreshUserDto.id,
     );
 
-    const isRefreshTokenMatching = await this.passwordUtilsService.compareContent(
-      query.getRefreshUserDto.refreshToken,
-      user.hashedRefreshToken,
-    );
+    const isRefreshTokenMatching =
+      await this.passwordUtilsService.compareContent(
+        query.getRefreshUserDto.refreshToken,
+        user.hashedRefreshToken,
+      );
 
     if (!isRefreshTokenMatching)
       this.rpcExceptionService.throwUnauthorised('Refresh token has expired');

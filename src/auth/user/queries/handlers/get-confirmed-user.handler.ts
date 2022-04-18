@@ -9,7 +9,8 @@ import { TokenService } from '../../../authorization/services';
 
 @QueryHandler(GetConfirmedUserQuery)
 export class GetConfirmedUserHandler
-  implements IQueryHandler<GetConfirmedUserQuery> {
+  implements IQueryHandler<GetConfirmedUserQuery>
+{
   constructor(
     @InjectRepository(UserReadRepository)
     private readonly userReadRepository: UserReadRepository,

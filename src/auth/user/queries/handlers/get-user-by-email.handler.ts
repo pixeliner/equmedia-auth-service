@@ -7,7 +7,8 @@ import { RpcExceptionService } from '../../../../utils/exception-handling';
 import { GetUserByEmailQuery } from '../impl';
 @QueryHandler(GetUserByEmailQuery)
 export class GetUserByEmailHandler
-  implements IQueryHandler<GetUserByEmailQuery> {
+  implements IQueryHandler<GetUserByEmailQuery>
+{
   constructor(
     @InjectRepository(UserReadRepository)
     private readonly userReadRepository: UserReadRepository,
