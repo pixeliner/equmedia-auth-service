@@ -7,7 +7,8 @@ import { SetRefreshTokenCommand } from '../impl';
 
 @CommandHandler(SetRefreshTokenCommand)
 export class SetRefreshTokenHandler
-  implements ICommandHandler<SetRefreshTokenCommand> {
+  implements ICommandHandler<SetRefreshTokenCommand>
+{
   constructor(
     @InjectRepository(UserWriteRepository)
     private readonly userWriteRepository: UserWriteRepository,
